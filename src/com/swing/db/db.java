@@ -7,6 +7,7 @@ package com.swing.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 /**
  *
@@ -17,17 +18,16 @@ public class db {
         Connection con = null;
         
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost/mvc_swing","root", "");
             return  con;
             
-        } catch (ClassNotFoundException |Exception e) {
+        } catch (ClassNotFoundException | SQLException e) {
             System.out.println(e);
             
             return null;
         }
         
-        
-        
     }
+    
 }
